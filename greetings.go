@@ -7,6 +7,11 @@ import (
 	"time"
 )
 
+// init sets initial values for variables used in the function.
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 // Hello returns a greeting for the named person.
 func Hello(name string) (string, error) {
 	// If no name was given, return an error with a message.
@@ -34,11 +39,6 @@ func Hellos(names []string) (map[string]string, error) {
 		messages[name] = message
 	}
 	return messages, nil
-}
-
-// init sets initial values for variables used in the function.
-func init() {
-	rand.Seed(time.Now().UnixNano())
 }
 
 func randomFormat() string {
